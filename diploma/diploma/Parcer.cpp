@@ -1,5 +1,10 @@
 #include "Parcer.h"
 
+namespace NMMessages
+{
+	const std::string notOpenFile = "can not open file: ";
+}
+
 Parcer::Parcer()
 {
 	fin.open(pathFile);
@@ -18,8 +23,13 @@ bool Parcer::checkFile()
 	}
 	else
 	{
-		error.setError(notOpenFile + pathFile, line);
+		error.setError(NMMessages::notOpenFile + pathFile, line);
 		return false;
 	}
 	
+}
+
+bool Parcer::parcing()
+{
+	return false;
 }

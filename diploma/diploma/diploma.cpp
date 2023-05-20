@@ -7,7 +7,14 @@ int main()
 
 	if (parcer.checkFile())
 	{
+		if (parcer.parcing())
+		{
 
+		}
+		else
+		{
+
+		}
 	}
 	else
 	{
