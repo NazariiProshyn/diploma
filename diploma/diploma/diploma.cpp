@@ -4,6 +4,7 @@
 int main()
 {
 	Parcer parcer;
+	bool parcingStatus = true;
 
 	if (parcer.checkFile())
 	{
@@ -13,11 +14,12 @@ int main()
 		}
 		else
 		{
-
+			parcingStatus = false;
 		}
 	}
 	else
 	{
+		parcingStatus = false;
 		std::cout << parcer.getError();
 	}
 

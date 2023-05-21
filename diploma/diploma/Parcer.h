@@ -1,5 +1,6 @@
 #pragma once
 #include <fstream>
+#include <stack>
 
 #include "Error.h"
 
@@ -16,15 +17,19 @@ public:
 private:
 	const std::string pathFile{ "CppUi.txt" };
 	
-
 	std::ifstream fin;
 
 	int line{ 0 };
+	std::string activeString{""};
+	std::string parcingString{""};
+	std::stack<std::string> scope;
+	
 
 
 	Error error;
 
-
-	
+	void createWidget();
+	void changeWidget();
+	void paramWidget();
 };
 
