@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+#include "Text.h"
 class Button
 {
 	Button() = default;
@@ -22,6 +24,6 @@ private:
 	int sizeGorz = 120;
 	int positionVert = 0;
 	int positionGorz = 0;
-	std::string text = "Text";
+	Text text;
 };
 

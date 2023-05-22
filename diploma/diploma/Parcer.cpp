@@ -6,6 +6,7 @@
 namespace NMMessages
 {
 	const std::string notOpenFile = "can not open file: ";
+	const std::string unknCommand = "Unknown command";
 }
 
 namespace NMCaommands
@@ -58,17 +59,28 @@ bool Parcer::parcing()
 		++line;
 		std::getline(fin, parcingString);
 
-		if (parcingString[0] == NMCaommands::create)
+		if (parcingString.size() > 0)
 		{
-			createWidget();
-		}
-		else if(parcingString[0] == NMCaommands::param)
-		{
-			paramWidget();
-		}
-		else if (parcingString[0] == NMCaommands::channge)
-		{
-			changeWidget();
+			if (parcingString[0] == NMCaommands::create)
+			{
+				createWidget();
+			}
+			else if (parcingString[0] == NMCaommands::param)
+			{
+				paramWidget();
+			}
+			else if (parcingString[0] == NMCaommands::channge)
+			{
+				changeWidget();
+			}
+			else if (parcingString[0] == NMCaommands::comment)
+			{
+
+			}
+			else
+			{
+				error.setError(NMMessages::unknCommand, line);
+			}
 		}
 	}
 
