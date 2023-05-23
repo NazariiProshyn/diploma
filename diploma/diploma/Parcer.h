@@ -3,6 +3,7 @@
 #include <stack>
 
 #include "Error.h"
+#include "Form.h"
 
 
 class Parcer
@@ -27,9 +28,13 @@ private:
 
 
 	Error error;
+	Form form;
+	
 
-	void createWidget();
-	void changeWidget();
-	void paramWidget();
+	bool createWidget();
+	bool changeWidget();
+	bool paramWidget();
+
+	bool getWidget();
 };
 

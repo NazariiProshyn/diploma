@@ -3,6 +3,7 @@
 #include "Text.h"
 class Button
 {
+public:
 	Button() = default;
 	~Button() = default;
 

@@ -21,3 +21,15 @@ int Form::getSizeGorz()
 {
 	return sizeGorz;
 }
+
+void Form::createButton()
+{
+	Button button;
+	buttons.push_back(button);
+}
+
+void Form::createLabel()
+{
+	Label label;
+	labels.push_back(label);
+}

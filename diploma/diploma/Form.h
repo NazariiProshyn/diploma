@@ -16,6 +16,9 @@ public:
 	void setSizeGorz(int info);
 	int  getSizeGorz();
 
+	void createButton();
+	void createLabel();
+
 private:
 	int sizeVert = 720;
 	int sizeGorz = 1200;

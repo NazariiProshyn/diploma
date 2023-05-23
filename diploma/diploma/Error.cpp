@@ -5,11 +5,12 @@ void Error::setError(std::string info, int line)
 {
 	if (line != 0)
 	{
-		error = "line: " + std::to_string(line);
+		error = "line " + std::to_string(line) + ": ";
 	}
-	error = info;
+	error += info;
 
+	std::cout << '\n' << error << '\n';
 	std::ofstream fout;
 	fout.open(pathError);
-	fout << info;
+	fout << error;
 }

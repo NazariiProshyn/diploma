@@ -3,6 +3,7 @@
 #include "Text.h"
 class Label
 {
+public:
 	Label() = default;
 	~Label() = default;
 

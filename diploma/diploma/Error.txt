@@ -1,1 +1,1 @@
-can not open file: CppUi.txt
+line 1: Unknown command
