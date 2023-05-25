@@ -16,8 +16,19 @@ public:
 	void setSizeGorz(int info);
 	int  getSizeGorz();
 
+
 	void createButton();
+	void setButtonSizeVert(int info);
+	void setButtonSizeGorz(int info);
+	void setButtonPositionVert(int info);
+	void setButtonPositionGorz(int info);
+	void setButtonText(std::string info);
+
+
 	void createLabel();
+	void setPositionVert(int info);
+	void setPositionGorz(int info);
+	void setText(std::string info);
 
 private:
 	int sizeVert = 720;

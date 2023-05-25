@@ -21,6 +21,7 @@ public:
 	void setText(std::string info);
 
 private:
+
 	int sizeVert = 72;
 	int sizeGorz = 120;
 	int positionVert = 0;

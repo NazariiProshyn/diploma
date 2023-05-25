@@ -8,7 +8,11 @@ namespace NMMessages
 	const std::string notOpenFile = "can not open file: ";
 	const std::string unknCommand = "Unknown command";
 	const std::string unknWidget = "Unknown widget or not in scope";
-	const std::string createWidgetError = "This widget can't creating in this place";
+	const std::string createWidgetError = "This widget can't creating in this scope";
+	const std::string outOfScope = "Out of any scopes";
+	const std::string noParam = "Must be ':' in this line";
+	const std::string noValue = "Must be value in this line";
+	const std::string badParam = "This widget havent this param";
 }
 
 namespace NMCaommands
@@ -59,11 +63,16 @@ bool Parcer::parcing()
 
 	while (!fin.eof())
 	{
+		if (scope.size() == 0)
+		{
+			error.setError(NMMessages::outOfScope, line);
+			return false;
+		}
 		++line;
 		std::getline(fin, parcingString);
 
 		if (parcingString.size() > 0)
-		{
+		{//////////////////////////////////////////////
 			if (parcingString[0] == NMCaommands::create)
 			{
 				if (getWidget())
@@ -79,21 +88,49 @@ bool Parcer::parcing()
 					error.setError(NMMessages::unknWidget, line);
 					return false;
 				}
-			}
+			}//////////////////////////////////////////////
 			else if (parcingString[0] == NMCaommands::param)
 			{
-				paramWidget();
-			}
+				if (getParam())
+				{
+					if (getValue())
+					{
+						if (checkParam())
+						{
+							if (!paramWidget())
+							{
+								error.setError(NMMessages::createWidgetError, line);
+								return false;
+							}
+						}
+						else
+						{
+							error.setError(NMMessages::badParam, line);
+							return false;
+						}
+					}
+					else
+					{
+						error.setError(NMMessages::noValue, line);
+						return false;
+					}
+				}
+				else
+				{
+					error.setError(NMMessages::noParam, line);
+					return false;
+				}
+			}/////////////////////////////////////////////////
 			else if (parcingString[0] == NMCaommands::channge)
 			{
 				changeWidget();
-			}
+			}////////////////////////////////////////////////
 			else if (parcingString[0] == NMCaommands::comment)
 			{
 
 			}
 			else
-			{
+			{////////////////////////////////////////////////
 				error.setError(NMMessages::unknCommand, line);
 				return false;
 			}
@@ -131,6 +168,7 @@ bool Parcer::createWidget()
 			return false;
 		}
 		scope.push(NMWidgets::text);
+		std::cout << '\n' << "Create Text" << '\n';
 	}
 
 	return true;
@@ -143,11 +181,15 @@ bool Parcer::changeWidget()
 
 bool Parcer::paramWidget()
 {
+	//valueString
+	//parcingString
+	//activeString
 	return true;
 }
 
 bool Parcer::getWidget()
 {
+	activeString.clear();
 	bool inScope = false;
 	for (size_t i = 1; i < parcingString.size(); ++i)
 	{
@@ -171,6 +213,102 @@ bool Parcer::getWidget()
 		return false;
 	}
 
+	return true;
+}
+
+bool Parcer::getParam()
+{
+	activeString.clear();
+	bool value = false;
+	for (size_t i = 1; i < parcingString.size(); ++i)
+	{
+		if (parcingString[i] != '[' && parcingString[i] != ' '
+			&& parcingString[i] != '|' && parcingString[i] != '/'
+			&& parcingString[i] != '>' && parcingString[i] != '#')
+		{
+			activeString += parcingString[i];
+		}
+
+		if (parcingString[i] == ':')
+		{
+			value = true;
+			break;
+			std::cout << '\n' << activeString << '\n';
+		}
+	}
+	if (value != true)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+bool Parcer::getValue()
+{
+	valueString.clear();
+	bool value = false;
+	bool firstspace = false;
+	for (size_t i = 1; i < parcingString.size(); ++i)
+	{
+		if (parcingString[i] == ':')
+		{
+			value = true;
+		}
+		if (value)
+		{
+			if (parcingString[i] == ' ' && firstspace)
+			{
+				valueString += parcingString[i];
+			}
+			if (parcingString[i] != ' ')
+			{
+				firstspace = true;
+				valueString += parcingString[i];
+			}
+			
+		}
+	}
+	if (valueString.size() == 0)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+bool Parcer::checkParam()
+{
+	if (scope.top() == NMWidgets::text)
+	{
+		if (scope.top() != "text"
+			&& scope.top() != "positionVert" && scope.top() != "positionGorz")
+		{
+			return false;
+		}
+	}
+	else if(scope.top() == NMWidgets::button)
+	{
+		if (scope.top() != "sizeVert" && scope.top() != "sizeGorz"
+			&& scope.top() != "positionVert" && scope.top() != "positionGorz")
+		{
+			return false;
+		}
+	}
+	else if(scope.top() == NMWidgets::label)
+	{
+		if (scope.top() != "positionVert" && scope.top() != "positionGorz")
+		{
+			return false;
+		}
+	}
+	else if(scope.top() == NMWidgets::form)
+	{
+		if (scope.top() != "sizeVert" && scope.top() != "sizeGorz")
+		{
+			return false;
+		}
+	}
 	return true;
 }
 

@@ -23,6 +23,7 @@ private:
 	int line{ 0 };
 	std::string activeString{""};
 	std::string parcingString{""};
+	std::string valueString{""};
 	std::stack<std::string> scope;
 	
 
@@ -36,5 +37,8 @@ private:
 	bool paramWidget();
 
 	bool getWidget();
+	bool getParam();
+	bool getValue();
+	bool checkParam();
 };
 
