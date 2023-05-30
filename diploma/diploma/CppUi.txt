@@ -1,5 +1,17 @@
-|      Button  [     
-/ sizeVert: 100 ]
+|Button           [     
+/   name: Button
+/   sizeVert: 100 
+/   sizeGorz: 100
+/   positionVert: 100
 
+|     Text [
+/        positionVert: 50
+/        positionGorz: 50
+/        height:10
+/        italic: italic
+/        underline: underline
+/        bold: bold
+/        text: MyText]
+/   positionGorz: 100]
 / sizeVert: 100
 

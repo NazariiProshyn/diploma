@@ -75,7 +75,6 @@ bool Parcer::checkFile()
 		error.setError(NMMessages::notOpenFile + pathFile, line);
 		return false;
 	}
-	
 }
 
 bool Parcer::parcing()
@@ -173,13 +172,13 @@ bool Parcer::createWidget()
 		{
 			scope.push(NMWidgets::button);
 			form.createButton();
-			std::cout << '\n' << "Create button" << '\n';
+			//std::cout << '\n' << "Create button" << '\n';
 		}
 		if (activeString == NMWidgets::label)
 		{
 			scope.push(NMWidgets::label);
 			form.createLabel();
-			std::cout << '\n' << "Create label" << '\n';
+			//std::cout << '\n' << "Create label" << '\n';
 		}
 	}
 	else
@@ -215,7 +214,7 @@ bool Parcer::paramWidget()
 			{
 				form.buttons[form.buttons.size() - 1].text.setText(valueString);
 			}
-			if (activeString != "positionVert")
+			if (activeString == "positionVert")
 			{
 				if (!checkInt(valueString))
 				{
@@ -226,7 +225,7 @@ bool Parcer::paramWidget()
 					form.buttons[form.buttons.size() - 1].text.setPositionVert(std::stoi(valueString));
 				}
 			}
-			if (activeString != "positionGorz")
+			if (activeString == "positionGorz")
 			{
 				if (!checkInt(valueString))
 				{
@@ -248,11 +247,11 @@ bool Parcer::paramWidget()
 					form.buttons[form.buttons.size() - 1].text.setHeight(std::stoi(valueString));
 				}
 			}
-			if (activeString != "italic")
+			if (activeString == "italic")
 			{
 				form.buttons[form.buttons.size() - 1].text.setItalic();
 			}
-			if (activeString != "underline")
+			if (activeString == "underline")
 			{
 				form.buttons[form.buttons.size() - 1].text.setUnderline();
 			}
@@ -260,7 +259,7 @@ bool Parcer::paramWidget()
 			{
 				form.buttons[form.buttons.size() - 1].text.setBold();
 			}
-			if (activeString != "title")
+			if (activeString == "title")
 			{
 				//--------------------------------------
 				//--------------------------------------
@@ -279,7 +278,7 @@ bool Parcer::paramWidget()
 			{
 				form.labels[form.labels.size() - 1].text.setText(valueString);
 			}
-			if (activeString != "positionVert")
+			if (activeString == "positionVert")
 			{
 				if (!checkInt(valueString))
 				{
@@ -290,7 +289,7 @@ bool Parcer::paramWidget()
 					form.labels[form.labels.size() - 1].text.setPositionVert(std::stoi(valueString));
 				}
 			}
-			if (activeString != "positionGorz")
+			if (activeString == "positionGorz")
 			{
 				if (!checkInt(valueString))
 				{
@@ -312,11 +311,11 @@ bool Parcer::paramWidget()
 					form.labels[form.labels.size() - 1].text.setHeight(std::stoi(valueString));
 				}
 			}
-			if (activeString != "italic")
+			if (activeString == "italic")
 			{
 				form.labels[form.labels.size() - 1].text.setItalic();
 			}
-			if (activeString != "underline")
+			if (activeString == "underline")
 			{
 				form.labels[form.labels.size() - 1].text.setUnderline();
 			}
@@ -324,7 +323,7 @@ bool Parcer::paramWidget()
 			{
 				form.labels[form.labels.size() - 1].text.setBold();
 			}
-			if (activeString != "title")
+			if (activeString == "title")
 			{
 				//--------------------------------------
 				//--------------------------------------
@@ -355,7 +354,7 @@ bool Parcer::paramWidget()
 				form.buttons[form.buttons.size() - 1].setSizeVert(std::stoi(valueString));
 			}
 		}
-		if (activeString != "sizeGorz")
+		if (activeString == "sizeGorz")
 		{
 			if (!checkInt(valueString))
 			{
@@ -366,7 +365,7 @@ bool Parcer::paramWidget()
 				form.buttons[form.buttons.size() - 1].setSizeGorz(std::stoi(valueString));
 			}
 		}
-		if (activeString != "positionVert")
+		if (activeString == "positionVert")
 		{
 			if (!checkInt(valueString))
 			{
@@ -377,7 +376,7 @@ bool Parcer::paramWidget()
 				form.buttons[form.buttons.size() - 1].setPositionVert(std::stoi(valueString));
 			}
 		}
-		if (activeString != "positionGorz")
+		if (activeString == "positionGorz")
 		{
 			if (!checkInt(valueString))
 			{
@@ -388,6 +387,10 @@ bool Parcer::paramWidget()
 				form.buttons[form.buttons.size() - 1].setPositionGorz(std::stoi(valueString));
 			}
 		}
+		if (activeString == "name")
+		{
+			form.buttons[form.buttons.size() - 1].setName(valueString);
+		}
 	}
 
 
@@ -397,7 +400,7 @@ bool Parcer::paramWidget()
 
 	else if (scope.top() == NMWidgets::label)
 	{
-		if (activeString != "positionVert")
+		if (activeString == "positionVert")
 		{
 			if (!checkInt(valueString))
 			{
@@ -408,7 +411,7 @@ bool Parcer::paramWidget()
 				form.labels[form.labels.size() - 1].setPositionVert(std::stoi(valueString));
 			}
 		}
-		if (activeString != "positionGorz")
+		if (activeString == "positionGorz")
 		{
 			if (!checkInt(valueString))
 			{
@@ -419,6 +422,10 @@ bool Parcer::paramWidget()
 				form.labels[form.labels.size() - 1].setPositionGorz(std::stoi(valueString));
 			}
 		}
+		if (activeString == "name")
+		{
+			form.labels[form.labels.size() - 1].setName(valueString);
+		}
 	}
 
 
@@ -427,7 +434,7 @@ bool Parcer::paramWidget()
 
 	else if (scope.top() == NMWidgets::form)
 	{
-		if (activeString != "sizeVert")
+		if (activeString == "sizeVert")
 		{
 			if (!checkInt(valueString))
 			{
@@ -438,7 +445,7 @@ bool Parcer::paramWidget()
 				form.setSizeVert(std::stoi(valueString));
 			}
 		}
-		if (activeString != "sizeGorz")
+		if (activeString == "sizeGorz")
 		{
 			if (!checkInt(valueString))
 			{
@@ -465,7 +472,6 @@ bool Parcer::paramWidget()
 		}
 
 	}
-	std::cout << "\nSet " << activeString << " value " << valueString << '\n';
 	if (closeScope)
 	{
 		std::cout << "\nClose scope " << scope.top() << '\n';
@@ -492,7 +498,7 @@ bool Parcer::getWidget()
 		{
 			inScope = true;
 			break;
-			std::cout << '\n' << activeString << '\n';
+			//std::cout << '\n' << activeString << '\n';
 		}
 	}
 	if (inScope != true || (activeString != NMWidgets::button && 
@@ -508,15 +514,19 @@ bool Parcer::getParam()
 {
 	activeString.clear();
 	bool value = false;
+	bool closeScope = false;
 	for (size_t i = 1; i < parcingString.size(); ++i)
 	{
 		if (parcingString[i] == ':')
 		{
 			value = true;
 			break;
-			std::cout << '\n' << activeString << '\n';
+			//std::cout << '\n' << activeString << '\n';
 		}
-
+		if (parcingString[i] == ']')
+		{
+			closeScope = true;
+		}
 		if (parcingString[i] != '[' && parcingString[i] != ' '
 			&& parcingString[i] != '|' && parcingString[i] != '/'
 			&& parcingString[i] != '>' && parcingString[i] != '#')
@@ -526,7 +536,15 @@ bool Parcer::getParam()
 	}
 	if (value != true)
 	{
-		return false;
+		if (closeScope)
+		{
+			onlyScope = true;
+		}
+		else
+		{
+			return false;
+		}
+		
 	}
 
 	return true;
@@ -564,7 +582,15 @@ bool Parcer::getValue()
 	}
 	if (valueString.size() == 0)
 	{
-		return false;
+		if (onlyScope)
+		{
+
+		}
+		else
+		{
+			return false;
+		}
+		
 	}
 
 	return true;
@@ -572,40 +598,50 @@ bool Parcer::getValue()
 
 bool Parcer::checkParam()
 {
-	if (scope.top() == NMWidgets::text)
+	if (onlyScope)
 	{
-		if (activeString != "text"
-			&& activeString != "positionVert" && activeString != "positionGorz"
-			&& activeString != "height" && activeString != "italic"
-			&& activeString != "underline" && activeString != "bold"
-			&& activeString != "title")
-		{
-			return false;
-		}
+
 	}
-	else if(scope.top() == NMWidgets::button)
+	else
 	{
-		if (activeString != "sizeVert" && activeString != "sizeGorz"
-			&& activeString != "positionVert" && activeString != "positionGorz")
+		if (scope.top() == NMWidgets::text)
 		{
-			return false;
+			if (activeString != "text"
+				&& activeString != "positionVert" && activeString != "positionGorz"
+				&& activeString != "height" && activeString != "italic"
+				&& activeString != "underline" && activeString != "bold"
+				&& activeString != "title")
+			{
+				return false;
+			}
 		}
-	}
-	else if(scope.top() == NMWidgets::label)
-	{
-		if (activeString != "positionVert" && activeString != "positionGorz")
+		else if (scope.top() == NMWidgets::button)
 		{
-			return false;
+			if (activeString != "sizeVert" && activeString != "sizeGorz"
+				&& activeString != "positionVert" && activeString != "positionGorz"
+				&& activeString != "name")
+			{
+				return false;
+			}
 		}
-	}
-	else if(scope.top() == NMWidgets::form)
-	{
-		if (activeString != "sizeVert" && activeString != "sizeGorz")
+		else if (scope.top() == NMWidgets::label)
 		{
-			return false;
+			if (activeString != "positionVert" && activeString != "positionGorz"
+				&& activeString != "name")
+			{
+				return false;
+			}
 		}
+		else if (scope.top() == NMWidgets::form)
+		{
+			if (activeString != "sizeVert" && activeString != "sizeGorz")
+			{
+				return false;
+			}
+		}
+		return true;
 	}
-	return true;
+	
 }
 
 

@@ -4,7 +4,7 @@
 class Label
 {
 public:
-	Label() = default;
+	Label();
 	~Label() = default;
 
 
@@ -12,10 +12,13 @@ public:
 	int  getPositionVert();
 	void setPositionGorz(int info);
 	int  getPositionGorz();
+	void setName(std::string info);
+	std::string getName();
 
 	Text text;
 
 private:
+	std::string name;
 	int positionVert = 0;
 	int positionGorz = 0;
 	

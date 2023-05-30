@@ -1,2 +1,3 @@
 ﻿  Parcer.cpp
+D:\University\diploma\diploma\diploma\diploma\Parcer.cpp(645): warning C4715: 'Parcer::checkParam': not all control paths return a value
   diploma.vcxproj -> D:\University\diploma\diploma\diploma\x64\Debug\diploma.exe

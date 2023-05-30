@@ -26,6 +26,7 @@ private:
 	std::string valueString{""};
 	std::stack<std::string> scope;
 	
+	bool onlyScope = false;
 
 
 	Error error;

@@ -3,6 +3,8 @@
 void Text::setPositionVert(int info)
 {
 	positionVert = info;
+	std::cout << "Set positionVert: " << info << " for " << text << '\n';
+
 }
 
 int Text::getPositionVert()
@@ -13,6 +15,7 @@ int Text::getPositionVert()
 void Text::setPositionGorz(int info)
 {
 	positionGorz = info;
+	std::cout << "Set positionGorz: " << info << " for " << text << '\n';
 }
 
 int Text::getPositionGorz()
@@ -23,6 +26,7 @@ int Text::getPositionGorz()
 void Text::setHeight(int info)
 {
 	height = info;
+	std::cout << "Set height: " << info << " for " << text << '\n';
 }
 
 int Text::getHeight()
@@ -33,6 +37,7 @@ int Text::getHeight()
 void Text::setItalic()
 {
 	italic = true;
+	std::cout << "Set italic " << "for " << text << '\n';
 }
 
 bool Text::getItalic()
@@ -43,6 +48,7 @@ bool Text::getItalic()
 void Text::setUnderline()
 {
 	underline = true;
+	std::cout << "Set underline " << "for " << text << '\n';
 }
 
 bool Text::getUnderline()
@@ -53,6 +59,7 @@ bool Text::getUnderline()
 void Text::setBold()
 {
 	bold = true;
+	std::cout << "Set bold " << "for " << text << '\n';
 }
 
 bool Text::getBold()
@@ -68,4 +75,5 @@ std::string Text::getText()
 void Text::setText(std::string info)
 {
 	text = info;
+	std::cout << "Set text: " << info << " for " << text << '\n';
 }
