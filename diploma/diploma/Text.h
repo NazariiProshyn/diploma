@@ -12,6 +12,15 @@ public:
 	void setPositionGorz(int info);
 	int  getPositionGorz();
 
+	void setHeight(int info);
+	int getHeight();
+	void setItalic();
+	bool getItalic();
+	void setUnderline();
+	bool getUnderline();
+	void setBold();
+	bool getBold();
+
 	std::string getText();
 	void setText(std::string info);
 
@@ -19,6 +28,13 @@ private:
 	int positionVert = 0;
 	int positionGorz = 0;
 	std::string text = "Text";
+
+
+	int height = 12;
+	bool italic = false;
+	bool underline = false;
+	bool bold = false;
+	std::string title = "Arial";
 
 
 };

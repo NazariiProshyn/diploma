@@ -40,12 +40,3 @@ int Button::getPositionGorz()
 	return positionGorz;
 }
 
-std::string Button::getText()
-{
-	return text.getText();
-}
-
-void Button::setText(std::string info)
-{
-	text.setText(info);
-}

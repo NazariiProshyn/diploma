@@ -1,1 +1,1 @@
-line 1: Unknown widget or not in scope
+line 2: This line has invalid value or symbol after scope sign

@@ -13,6 +13,7 @@ namespace NMMessages
 	const std::string noParam = "Must be ':' in this line";
 	const std::string noValue = "Must be value in this line";
 	const std::string badParam = "This widget havent this param";
+	const std::string badValue = "This line has invalid value or symbol after scope sign";
 }
 
 namespace NMCaommands
@@ -31,7 +32,27 @@ namespace NMWidgets
 	const std::string text   = "Text";
 }
 
-
+bool checkInt(std::string info)
+{
+	for (size_t i = 0; i < info.size(); ++i)
+	{
+		if (info[i] != '0' &&
+			info[i] != '1' &&
+			info[i] != '2' &&
+			info[i] != '3' &&
+			info[i] != '4' &&
+			info[i] != '5' &&
+			info[i] != '6' &&
+			info[i] != '7' &&
+			info[i] != '8' &&
+			info[i] != '9' &&
+			info[i] != ' ')
+		{
+			return false;
+		}
+	}
+	return true;
+}
 
 Parcer::Parcer()
 {
@@ -99,7 +120,7 @@ bool Parcer::parcing()
 						{
 							if (!paramWidget())
 							{
-								error.setError(NMMessages::createWidgetError, line);
+								error.setError(NMMessages::badValue, line);
 								return false;
 							}
 						}
@@ -184,6 +205,273 @@ bool Parcer::paramWidget()
 	//valueString
 	//parcingString
 	//activeString
+	if (scope.top() == NMWidgets::text)
+	{
+		scope.pop();
+
+		if (scope.top() == NMWidgets::button)
+		{
+			if (activeString == "text")
+			{
+				form.buttons[form.buttons.size() - 1].text.setText(valueString);
+			}
+			if (activeString != "positionVert")
+			{
+				if (!checkInt(valueString))
+				{
+					return false;
+				}
+				else
+				{
+					form.buttons[form.buttons.size() - 1].text.setPositionVert(std::stoi(valueString));
+				}
+			}
+			if (activeString != "positionGorz")
+			{
+				if (!checkInt(valueString))
+				{
+					return false;
+				}
+				else
+				{
+					form.buttons[form.buttons.size() - 1].text.setPositionGorz(std::stoi(valueString));
+				}
+			}
+			if (activeString == "height")
+			{
+				if (!checkInt(valueString))
+				{
+					return false;
+				}
+				else
+				{
+					form.buttons[form.buttons.size() - 1].text.setHeight(std::stoi(valueString));
+				}
+			}
+			if (activeString != "italic")
+			{
+				form.buttons[form.buttons.size() - 1].text.setItalic();
+			}
+			if (activeString != "underline")
+			{
+				form.buttons[form.buttons.size() - 1].text.setUnderline();
+			}
+			if (activeString == "bold")
+			{
+				form.buttons[form.buttons.size() - 1].text.setBold();
+			}
+			if (activeString != "title")
+			{
+				//--------------------------------------
+				//--------------------------------------
+				//--------------------------------------
+				//--------------------------------------
+				//--------------------------------------
+				//--------------------------------------
+				//--------------------------------------
+			}
+			
+		}
+
+		if (scope.top() == NMWidgets::label)
+		{
+			if (activeString == "text")
+			{
+				form.labels[form.labels.size() - 1].text.setText(valueString);
+			}
+			if (activeString != "positionVert")
+			{
+				if (!checkInt(valueString))
+				{
+					return false;
+				}
+				else
+				{
+					form.labels[form.labels.size() - 1].text.setPositionVert(std::stoi(valueString));
+				}
+			}
+			if (activeString != "positionGorz")
+			{
+				if (!checkInt(valueString))
+				{
+					return false;
+				}
+				else
+				{
+					form.labels[form.labels.size() - 1].text.setPositionGorz(std::stoi(valueString));
+				}
+			}
+			if (activeString == "height")
+			{
+				if (!checkInt(valueString))
+				{
+					return false;
+				}
+				else
+				{
+					form.labels[form.labels.size() - 1].text.setHeight(std::stoi(valueString));
+				}
+			}
+			if (activeString != "italic")
+			{
+				form.labels[form.labels.size() - 1].text.setItalic();
+			}
+			if (activeString != "underline")
+			{
+				form.labels[form.labels.size() - 1].text.setUnderline();
+			}
+			if (activeString == "bold")
+			{
+				form.labels[form.labels.size() - 1].text.setBold();
+			}
+			if (activeString != "title")
+			{
+				//--------------------------------------
+				//--------------------------------------
+				//--------------------------------------
+				//--------------------------------------
+				//--------------------------------------
+				//--------------------------------------
+				//--------------------------------------
+			}
+		}
+		scope.push(NMWidgets::text);
+	}
+
+
+
+
+
+	else if (scope.top() == NMWidgets::button)
+	{
+		if (activeString == "sizeVert")
+		{
+			if (!checkInt(valueString))
+			{
+				return false;
+			}
+			else
+			{
+				form.buttons[form.buttons.size() - 1].setSizeVert(std::stoi(valueString));
+			}
+		}
+		if (activeString != "sizeGorz")
+		{
+			if (!checkInt(valueString))
+			{
+				return false;
+			}
+			else
+			{
+				form.buttons[form.buttons.size() - 1].setSizeGorz(std::stoi(valueString));
+			}
+		}
+		if (activeString != "positionVert")
+		{
+			if (!checkInt(valueString))
+			{
+				return false;
+			}
+			else
+			{
+				form.buttons[form.buttons.size() - 1].setPositionVert(std::stoi(valueString));
+			}
+		}
+		if (activeString != "positionGorz")
+		{
+			if (!checkInt(valueString))
+			{
+				return false;
+			}
+			else
+			{
+				form.buttons[form.buttons.size() - 1].setPositionGorz(std::stoi(valueString));
+			}
+		}
+	}
+
+
+
+
+
+
+	else if (scope.top() == NMWidgets::label)
+	{
+		if (activeString != "positionVert")
+		{
+			if (!checkInt(valueString))
+			{
+				return false;
+			}
+			else
+			{
+				form.labels[form.labels.size() - 1].setPositionVert(std::stoi(valueString));
+			}
+		}
+		if (activeString != "positionGorz")
+		{
+			if (!checkInt(valueString))
+			{
+				return false;
+			}
+			else
+			{
+				form.labels[form.labels.size() - 1].setPositionGorz(std::stoi(valueString));
+			}
+		}
+	}
+
+
+
+
+
+	else if (scope.top() == NMWidgets::form)
+	{
+		if (activeString != "sizeVert")
+		{
+			if (!checkInt(valueString))
+			{
+				return false;
+			}
+			else
+			{
+				form.setSizeVert(std::stoi(valueString));
+			}
+		}
+		if (activeString != "sizeGorz")
+		{
+			if (!checkInt(valueString))
+			{
+				return false;
+			}
+			else
+			{
+				form.setSizeGorz(std::stoi(valueString));
+			}
+		}
+	}
+
+
+	bool closeScope = false;
+	for (size_t i = 0; i < parcingString.size(); ++i)
+	{
+		if (closeScope && (parcingString[i] != ']' || parcingString[i] != ' '))
+		{
+			return false;
+		}
+		if (parcingString[i] == ']')
+		{
+			closeScope = true;
+		}
+
+	}
+	std::cout << "\nSet " << activeString << " value " << valueString << '\n';
+	if (closeScope)
+	{
+		std::cout << "\nClose scope " << scope.top() << '\n';
+		scope.pop();
+	}
+	
 	return true;
 }
 
@@ -222,18 +510,18 @@ bool Parcer::getParam()
 	bool value = false;
 	for (size_t i = 1; i < parcingString.size(); ++i)
 	{
-		if (parcingString[i] != '[' && parcingString[i] != ' '
-			&& parcingString[i] != '|' && parcingString[i] != '/'
-			&& parcingString[i] != '>' && parcingString[i] != '#')
-		{
-			activeString += parcingString[i];
-		}
-
 		if (parcingString[i] == ':')
 		{
 			value = true;
 			break;
 			std::cout << '\n' << activeString << '\n';
+		}
+
+		if (parcingString[i] != '[' && parcingString[i] != ' '
+			&& parcingString[i] != '|' && parcingString[i] != '/'
+			&& parcingString[i] != '>' && parcingString[i] != '#')
+		{
+			activeString += parcingString[i];
 		}
 	}
 	if (value != true)
@@ -251,22 +539,27 @@ bool Parcer::getValue()
 	bool firstspace = false;
 	for (size_t i = 1; i < parcingString.size(); ++i)
 	{
+
+		if (value)
+		{
+			if (parcingString[i] != '[' && parcingString[i] != ']'
+				&& parcingString[i] != '|' && parcingString[i] != '/'
+				&& parcingString[i] != '>' && parcingString[i] != '#')
+			{
+				if (parcingString[i] != ' ' || firstspace)
+				{
+					valueString += parcingString[i];
+				}
+				if (parcingString[i] == ' ')
+				{
+					firstspace = true;
+				}
+			}
+
+		}
 		if (parcingString[i] == ':')
 		{
 			value = true;
-		}
-		if (value)
-		{
-			if (parcingString[i] == ' ' && firstspace)
-			{
-				valueString += parcingString[i];
-			}
-			if (parcingString[i] != ' ')
-			{
-				firstspace = true;
-				valueString += parcingString[i];
-			}
-			
 		}
 	}
 	if (valueString.size() == 0)
@@ -281,30 +574,33 @@ bool Parcer::checkParam()
 {
 	if (scope.top() == NMWidgets::text)
 	{
-		if (scope.top() != "text"
-			&& scope.top() != "positionVert" && scope.top() != "positionGorz")
+		if (activeString != "text"
+			&& activeString != "positionVert" && activeString != "positionGorz"
+			&& activeString != "height" && activeString != "italic"
+			&& activeString != "underline" && activeString != "bold"
+			&& activeString != "title")
 		{
 			return false;
 		}
 	}
 	else if(scope.top() == NMWidgets::button)
 	{
-		if (scope.top() != "sizeVert" && scope.top() != "sizeGorz"
-			&& scope.top() != "positionVert" && scope.top() != "positionGorz")
+		if (activeString != "sizeVert" && activeString != "sizeGorz"
+			&& activeString != "positionVert" && activeString != "positionGorz")
 		{
 			return false;
 		}
 	}
 	else if(scope.top() == NMWidgets::label)
 	{
-		if (scope.top() != "positionVert" && scope.top() != "positionGorz")
+		if (activeString != "positionVert" && activeString != "positionGorz")
 		{
 			return false;
 		}
 	}
 	else if(scope.top() == NMWidgets::form)
 	{
-		if (scope.top() != "sizeVert" && scope.top() != "sizeGorz")
+		if (activeString != "sizeVert" && activeString != "sizeGorz")
 		{
 			return false;
 		}

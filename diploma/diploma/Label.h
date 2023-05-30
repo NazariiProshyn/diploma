@@ -13,12 +13,11 @@ public:
 	void setPositionGorz(int info);
 	int  getPositionGorz();
 
-	std::string getText();
-	void setText(std::string info);
+	Text text;
 
 private:
 	int positionVert = 0;
 	int positionGorz = 0;
-	Text text;
+	
 };
 

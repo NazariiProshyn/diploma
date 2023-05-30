@@ -19,13 +19,3 @@ int Label::getPositionGorz()
 {
 	return positionGorz;
 }
-
-std::string Label::getText()
-{
-	return text.getText();
-}
-
-void Label::setText(std::string info)
-{
-	text.setText(info);
-}
