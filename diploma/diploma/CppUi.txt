@@ -8,9 +8,9 @@
 /        positionVert: 50
 /        positionGorz: 50
 /        height:10
-/        italic: italic
-/        underline: underline
-/        bold: bold
+/        italic: true
+/        underline: false
+/        bold:true
 /        text: MyText]
 /   positionGorz: 100]
 / sizeVert: 100

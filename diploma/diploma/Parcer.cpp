@@ -54,6 +54,44 @@ bool checkInt(std::string info)
 	return true;
 }
 
+bool checkBool(std::string info)
+{
+	std::string temp;
+	for (size_t i = 0; i < info.size(); ++i)
+	{
+		if (info[i] != ' ')
+		{
+			temp += info[i];
+		}
+	}
+	if (temp != "true" && temp != "false")
+	{
+		return false;
+	}
+	return true;
+}
+
+bool getBool(std::string info)
+{
+	std::string temp;
+	for (size_t i = 0; i < info.size(); ++i)
+	{
+		if (info[i] != ' ')
+		{
+			temp += info[i];
+		}
+	}
+	if (temp == "true")
+	{
+		return true;
+	}
+	if (temp == "false")
+	{
+		return false;
+	}
+}
+
+
 Parcer::Parcer()
 {
 	fin.open(pathFile);
@@ -249,15 +287,45 @@ bool Parcer::paramWidget()
 			}
 			if (activeString == "italic")
 			{
-				form.buttons[form.buttons.size() - 1].text.setItalic();
+				if (checkBool(valueString))
+				{
+					if (getBool(valueString))
+					{
+						form.buttons[form.buttons.size() - 1].text.setItalic();
+					}
+				}
+				else
+				{
+					return false;
+				}
 			}
 			if (activeString == "underline")
 			{
-				form.buttons[form.buttons.size() - 1].text.setUnderline();
+				if (checkBool(valueString))
+				{
+					if (getBool(valueString))
+					{
+						form.buttons[form.buttons.size() - 1].text.setUnderline();
+					}
+				}
+				else
+				{
+					return false;
+				}
 			}
 			if (activeString == "bold")
 			{
-				form.buttons[form.buttons.size() - 1].text.setBold();
+				if (checkBool(valueString))
+				{
+					if (getBool(valueString))
+					{
+						form.buttons[form.buttons.size() - 1].text.setBold();
+					}
+				}
+				else
+				{
+					return false;
+				}	
 			}
 			if (activeString == "title")
 			{
@@ -313,15 +381,45 @@ bool Parcer::paramWidget()
 			}
 			if (activeString == "italic")
 			{
-				form.labels[form.labels.size() - 1].text.setItalic();
+				if (checkBool(valueString))
+				{
+					if (getBool(valueString))
+					{
+						form.labels[form.labels.size() - 1].text.setItalic();
+					}
+				}
+				else
+				{
+					return false;
+				}
 			}
 			if (activeString == "underline")
 			{
-				form.labels[form.labels.size() - 1].text.setUnderline();
+				if (checkBool(valueString))
+				{
+					if (getBool(valueString))
+					{
+						form.labels[form.labels.size() - 1].text.setUnderline();
+					}
+				}
+				else
+				{
+					return false;
+				}
 			}
 			if (activeString == "bold")
 			{
-				form.labels[form.labels.size() - 1].text.setBold();
+				if (checkBool(valueString))
+				{
+					if (getBool(valueString))
+					{
+						form.labels[form.labels.size() - 1].text.setBold();
+					}
+				}
+				else
+				{
+					return false;
+				}
 			}
 			if (activeString == "title")
 			{
