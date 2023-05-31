@@ -65,3 +65,25 @@ std::string Button::getName()
 	return name;
 }
 
+void Button::setClicable(bool info)
+{
+	clicable = info;
+	std::cout << "Set clicable " << info << "for " << name << '\n';
+}
+
+bool Button::getClicable()
+{
+	return clicable;
+}
+
+void Button::setDoubleClicable(bool info)
+{
+	doubleClicable = info;
+	std::cout << "Set doubleClicable " << info << "for " << name << '\n';
+}
+
+bool Button::getDoubleClicable()
+{
+	return doubleClicable;
+}
+

@@ -18,6 +18,10 @@ public:
 	int  getPositionGorz();
 	void setName(std::string info);
 	std::string getName();
+	void setClicable(bool info);
+	bool getClicable();
+	void setDoubleClicable(bool info);
+	bool getDoubleClicable();
 
 
 	Text text;
@@ -28,5 +32,7 @@ private:
 	int positionVert = 0;
 	int positionGorz = 0;
 	
+	bool clicable = false;
+	bool doubleClicable = false;
 };
 

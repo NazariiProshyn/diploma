@@ -291,7 +291,11 @@ bool Parcer::paramWidget()
 				{
 					if (getBool(valueString))
 					{
-						form.buttons[form.buttons.size() - 1].text.setItalic();
+						form.buttons[form.buttons.size() - 1].text.setItalic(true);
+					}
+					else
+					{
+						form.buttons[form.buttons.size() - 1].text.setItalic(false);
 					}
 				}
 				else
@@ -305,7 +309,11 @@ bool Parcer::paramWidget()
 				{
 					if (getBool(valueString))
 					{
-						form.buttons[form.buttons.size() - 1].text.setUnderline();
+						form.buttons[form.buttons.size() - 1].text.setUnderline(true);
+					}
+					else
+					{
+						form.buttons[form.buttons.size() - 1].text.setUnderline(false);
 					}
 				}
 				else
@@ -319,7 +327,11 @@ bool Parcer::paramWidget()
 				{
 					if (getBool(valueString))
 					{
-						form.buttons[form.buttons.size() - 1].text.setBold();
+						form.buttons[form.buttons.size() - 1].text.setBold(true);
+					}
+					else
+					{
+						form.buttons[form.buttons.size() - 1].text.setBold(false);
 					}
 				}
 				else
@@ -385,7 +397,11 @@ bool Parcer::paramWidget()
 				{
 					if (getBool(valueString))
 					{
-						form.labels[form.labels.size() - 1].text.setItalic();
+						form.labels[form.labels.size() - 1].text.setItalic(true);
+					}
+					else
+					{
+						form.labels[form.labels.size() - 1].text.setItalic(false);
 					}
 				}
 				else
@@ -399,7 +415,11 @@ bool Parcer::paramWidget()
 				{
 					if (getBool(valueString))
 					{
-						form.labels[form.labels.size() - 1].text.setUnderline();
+						form.labels[form.labels.size() - 1].text.setUnderline(true);
+					}
+					else
+					{
+						form.labels[form.labels.size() - 1].text.setUnderline(false);
 					}
 				}
 				else
@@ -413,7 +433,11 @@ bool Parcer::paramWidget()
 				{
 					if (getBool(valueString))
 					{
-						form.labels[form.labels.size() - 1].text.setBold();
+						form.labels[form.labels.size() - 1].text.setBold(true);
+					}
+					else
+					{
+						form.labels[form.labels.size() - 1].text.setBold(false);
 					}
 				}
 				else
@@ -483,6 +507,42 @@ bool Parcer::paramWidget()
 			else
 			{
 				form.buttons[form.buttons.size() - 1].setPositionGorz(std::stoi(valueString));
+			}
+		}
+		if (activeString == "clicable")
+		{
+			if (checkBool(valueString))
+			{
+				if (getBool(valueString))
+				{
+					form.buttons[form.buttons.size() - 1].setClicable(true);
+				}
+				else
+				{
+					form.buttons[form.buttons.size() - 1].setClicable(false);
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
+		if (activeString == "doubleClicable")
+		{
+			if (checkBool(valueString))
+			{
+				if (getBool(valueString))
+				{
+					form.buttons[form.buttons.size() - 1].setDoubleClicable(true);
+				}
+				else
+				{
+					form.buttons[form.buttons.size() - 1].setDoubleClicable(false);
+				}
+			}
+			else
+			{
+				return false;
 			}
 		}
 		if (activeString == "name")
@@ -717,7 +777,7 @@ bool Parcer::checkParam()
 		{
 			if (activeString != "sizeVert" && activeString != "sizeGorz"
 				&& activeString != "positionVert" && activeString != "positionGorz"
-				&& activeString != "name")
+				&& activeString != "name" && activeString != "clicable" && activeString != "doubleClicable")
 			{
 				return false;
 			}

@@ -1,4 +1,4 @@
 ﻿  Parcer.cpp
 D:\University\diploma\diploma\diploma\diploma\Parcer.cpp(92): warning C4715: 'getBool': not all control paths return a value
-D:\University\diploma\diploma\diploma\diploma\Parcer.cpp(743): warning C4715: 'Parcer::checkParam': not all control paths return a value
+D:\University\diploma\diploma\diploma\diploma\Parcer.cpp(803): warning C4715: 'Parcer::checkParam': not all control paths return a value
   diploma.vcxproj -> D:\University\diploma\diploma\diploma\x64\Debug\diploma.exe

@@ -1,1 +1,1 @@
-line 11: This line has invalid value or symbol after scope sign
+line 7: This widget havent this param

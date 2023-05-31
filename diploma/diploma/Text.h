@@ -14,11 +14,11 @@ public:
 
 	void setHeight(int info);
 	int getHeight();
-	void setItalic();
+	void setItalic(bool info);
 	bool getItalic();
-	void setUnderline();
+	void setUnderline(bool info);
 	bool getUnderline();
-	void setBold();
+	void setBold(bool info);
 	bool getBold();
 
 	std::string getText();

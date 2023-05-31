@@ -34,10 +34,10 @@ int Text::getHeight()
 	return height;
 }
 
-void Text::setItalic()
+void Text::setItalic(bool info)
 {
-	italic = true;
-	std::cout << "Set italic " << "for " << text << '\n';
+	italic = info;
+	std::cout << "Set italic " << info << "for " << text << '\n';
 }
 
 bool Text::getItalic()
@@ -45,10 +45,10 @@ bool Text::getItalic()
 	return italic;
 }
 
-void Text::setUnderline()
+void Text::setUnderline(bool info)
 {
-	underline = true;
-	std::cout << "Set underline " << "for " << text << '\n';
+	underline = info;
+	std::cout << "Set underline " << info << "for " << text << '\n';
 }
 
 bool Text::getUnderline()
@@ -56,10 +56,10 @@ bool Text::getUnderline()
 	return underline;
 }
 
-void Text::setBold()
+void Text::setBold(bool info)
 {
-	bold = true;
-	std::cout << "Set bold " << "for " << text << '\n';
+	bold = info;
+	std::cout << "Set bold " << info << "for " << text << '\n';
 }
 
 bool Text::getBold()
