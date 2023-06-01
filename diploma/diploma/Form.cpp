@@ -36,3 +36,38 @@ void Form::createLabel()
 	labels.push_back(label);
 	std::cout << "Create label in " << name << '\n';
 }
+
+void Form::createNumberBox()
+{
+	NumberBox numberBox;
+	numberBoxes.push_back(numberBox);
+	std::cout << "Create numberBox in " << name << '\n';
+}
+
+void Form::createCheckBox()
+{
+	CheckBox checkBox;
+	checkBoxes.push_back(checkBox);
+	std::cout << "Create checkBox in " << name << '\n';
+}
+
+void Form::createRadioButton()
+{
+	RadioButton radioButton;
+	radioButtones.push_back(radioButton);
+	std::cout << "Create rdioButton in " << name << '\n';
+}
+
+void Form::createEditLine()
+{
+	EditLine editLine;
+	editLines.push_back(editLine);
+	std::cout << "Create editLine in " << name << '\n';
+}
+
+void Form::createImage()
+{
+	Image image;
+	images.push_back(image);
+	std::cout << "Create image in " << name << '\n';
+}

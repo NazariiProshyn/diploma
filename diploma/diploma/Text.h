@@ -24,6 +24,9 @@ public:
 	std::string getText();
 	void setText(std::string info);
 
+	std::string getTitle();
+	void setTitle(std::string info);
+
 private:
 	int positionVert = 0;
 	int positionGorz = 0;

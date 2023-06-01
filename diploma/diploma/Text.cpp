@@ -77,3 +77,14 @@ void Text::setText(std::string info)
 	text = info;
 	std::cout << "Set text: " << info << " for " << text << '\n';
 }
+
+std::string Text::getTitle()
+{
+	return title;
+}
+
+void Text::setTitle(std::string info)
+{
+	title = info;
+	std::cout << "Set title: " << info << " for " << text << '\n';
+}

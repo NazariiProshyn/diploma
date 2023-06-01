@@ -1,10 +1,10 @@
-|Button           [     
-/   name: Button
-/   sizeVert: 100 
-/   sizeGorz: 100
-/   positionVert: 100
-
-/ doubleClicable: true
+| NumberBox [
+/ name: NB
+/ positionVert: 100
+/ positionGorz: 100
+/ minValue: 5
+/ maxValue: 10
+/ defaultValue: 7
 |     Text [
 /        positionVert: 50
 /        positionGorz: 50
@@ -13,24 +13,4 @@
 /        underline: false
 /        bold:true
 /        text: MyText]
-/   positionGorz: 100]
-|Button           [     
-/   name: Button1
-/   sizeVert: 100 
-/   sizeGorz: 100
-/   positionVert: 100
 /]
-|Label [
-/ name: label
-/ positionVert: 100
-| Text [
-/        positionVert: 50
-/        positionGorz: 50
-/        height:10
-/        italic: true
-/        underline: false
-/        bold:true
-/        text: MyText]
-/]
-/ sizeVert: 100
-

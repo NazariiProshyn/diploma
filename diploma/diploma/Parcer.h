@@ -34,7 +34,6 @@ private:
 	
 
 	bool createWidget();
-	bool changeWidget();
 	bool paramWidget();
 
 	bool getWidget();

@@ -1,0 +1,36 @@
+|Button           [     
+/   name: Button
+/   sizeVert: 100 
+/   sizeGorz: 100
+/   positionVert: 100
+
+/ doubleClicable: true
+|     Text [
+/        positionVert: 50
+/        positionGorz: 50
+/        height:10
+/        italic: true
+/        underline: false
+/        bold:true
+/        text: MyText]
+/   positionGorz: 100]
+|Button           [     
+/   name: Button1
+/   sizeVert: 100 
+/   sizeGorz: 100
+/   positionVert: 100
+/]
+|Label [
+/ name: label
+/ positionVert: 100
+| Text [
+/        positionVert: 50
+/        positionGorz: 50
+/        height:10
+/        italic: true
+/        underline: false
+/        bold:true
+/        text: MyText]
+/]
+/ sizeVert: 100
+
