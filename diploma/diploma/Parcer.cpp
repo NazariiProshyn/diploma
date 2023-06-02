@@ -1366,6 +1366,10 @@ bool Parcer::paramWidget()
 				form.setSizeGorz(std::stoi(valueString));
 			}
 		}
+		if (activeString == "name")
+		{
+			form.setName(valueString);
+		}
 	}
 
 
@@ -1582,7 +1586,7 @@ bool Parcer::checkParam()
 		}
 		else if (scope.top() == NMWidgets::form)
 		{
-			if (activeString != "sizeVert" && activeString != "sizeGorz")
+			if (activeString != "sizeVert" && activeString != "sizeGorz" && activeString != "name")
 			{
 				return false;
 			}

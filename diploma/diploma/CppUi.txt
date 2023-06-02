@@ -1,16 +1,21 @@
-| NumberBox [
-/ name: NB
-/ positionVert: 100
-/ positionGorz: 100
-/ minValue: 5
-/ maxValue: 10
-/ defaultValue: 7
+/ name : Test Project
+/ sizeVert : 400
+/ sizeGorz : 300
+| Button [
+/         name : Button
+/         sizeVert : 350
+/         sizeGorz : 50
+/         positionVert : 10
+/         positionGorz : 10
 |     Text [
-/        positionVert: 50
-/        positionGorz: 50
-/        height:10
-/        italic: true
-/        underline: false
-/        bold:true
-/        text: MyText]
+/          text: Click me!]
+/]
+| Label [
+/        name: Label2
+/         sizeVert : 350
+/         sizeGorz : 50
+/         positionVert : 130
+/         positionGorz : 10
+|     Text [
+/          text: Random number]
 /]

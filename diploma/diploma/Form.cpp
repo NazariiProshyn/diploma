@@ -71,3 +71,14 @@ void Form::createImage()
 	images.push_back(image);
 	std::cout << "Create image in " << name << '\n';
 }
+
+void Form::setName(std::string info)
+{
+	name = info;
+	std::cout << "Set name: " << info << " for " << name << '\n';
+}
+
+std::string Form::getName()
+{
+	return name;
+}

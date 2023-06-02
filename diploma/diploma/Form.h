@@ -20,6 +20,8 @@ public:
 	int  getSizeVert();
 	void setSizeGorz(int info);
 	int  getSizeGorz();
+	void setName(std::string info);
+	std::string getName();
 
 
 	void createButton();
