@@ -1,21 +1,36 @@
-/ name : Test Project
-/ sizeVert : 400
-/ sizeGorz : 300
-| Button [
-/         name : Button
-/         sizeVert : 350
-/         sizeGorz : 50
-/         positionVert : 10
-/         positionGorz : 10
+|Button           [     
+/   name: Button
+/   sizeVert: 100 
+/   sizeGorz: 100
+/   positionVert: 100
+
+/ doubleClicable: true
 |     Text [
-/          text: Click me!]
+/        positionVert: 50
+/        positionGorz: 50
+/        height:10
+/        italic: true
+/        underline: false
+/        bold:true
+/        text: MyText]
+/   positionGorz: 100]
+|Button           [     
+/   name: Button1
+/   sizeVert: 100 
+/   sizeGorz: 100
+/   positionVert: 100
 /]
-| Label [
-/        name: Label2
-/         sizeVert : 350
-/         sizeGorz : 50
-/         positionVert : 130
-/         positionGorz : 10
-|     Text [
-/          text: Random number]
+|Label [
+/ name: Button
+/ positionVert: 100
+| Text [
+/        positionVert: 50
+/        positionGorz: 50
+/        height:10
+/        italic: true
+/        underline: false
+/        bold:true
+/        text: MyText]
 /]
+/ sizeVert: 100
+

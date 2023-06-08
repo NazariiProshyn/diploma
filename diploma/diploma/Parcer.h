@@ -40,5 +40,6 @@ private:
 	bool getParam();
 	bool getValue();
 	bool checkParam();
+	std::string checkUniqueNames();
 };
 

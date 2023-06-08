@@ -2,18 +2,20 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 namespace NMMessages
 {
-	const std::string notOpenFile = "can not open file: ";
-	const std::string unknCommand = "Unknown command";
-	const std::string unknWidget = "Unknown widget or not in scope";
-	const std::string createWidgetError = "This widget can't creating in this scope";
-	const std::string outOfScope = "Out of any scopes";
-	const std::string noParam = "Must be ':' in this line";
-	const std::string noValue = "Must be value in this line";
-	const std::string badParam = "This widget havent this param";
+	const std::string notOpenFile = "Can not open file: ";//
+	const std::string unknCommand = "Unknown command";//
+	const std::string unknWidget = "Unknown widget or not create scope";//
+	const std::string createWidgetError = "This widget can't creating in this scope";//
+	const std::string outOfScope = "Out of any scopes";//
+	const std::string noParam = "Must be ':' in this line";//
+	const std::string noValue = "Must be value in this line";//
+	const std::string badParam = "This widget havent this param";//
 	const std::string badValue = "This line has invalid value or symbol after scope sign";
+	const std::string notUniqueValue = "Two or more widgets with name: ";
 }
 
 namespace NMCaommands
@@ -203,6 +205,13 @@ bool Parcer::parcing()
 			}
 		}
 	}
+	std::string notUniqueName = checkUniqueNames();
+	if (notUniqueName != "")
+	{
+		error.setError(NMMessages::notUniqueValue + notUniqueName, 0);
+		return false;
+	}
+
 	std::cout << '\n' << "Parcing done!" << '\n';
 	return true;
 }
@@ -1594,6 +1603,91 @@ bool Parcer::checkParam()
 		return true;
 	}
 	
+}
+
+std::string Parcer::checkUniqueNames()
+{
+	std::string tempString = "";
+	std::vector<std::string> names;
+
+	for (size_t i = 0; i < form.buttons.size(); ++i)
+	{
+		tempString = form.buttons[i].getName();
+		for (size_t j = 0; j < names.size(); ++j)
+		{
+			if (tempString == names[j])
+			{
+				return tempString;
+			}
+		}
+		names.push_back(tempString);
+	}
+
+	for (size_t i = 0; i < form.labels.size(); ++i)
+	{
+		tempString = form.labels[i].getName();
+		for (size_t j = 0; j < names.size(); ++j)
+		{
+			if (tempString == names[j])
+			{
+				return tempString;
+			}
+		}
+		names.push_back(tempString);
+	}
+
+	for (size_t i = 0; i < form.numberBoxes.size(); ++i)
+	{
+		tempString = form.numberBoxes[i].getName();
+		for (size_t j = 0; j < names.size(); ++j)
+		{
+			if (tempString == names[j])
+			{
+				return tempString;
+			}
+		}
+		names.push_back(tempString);
+	}
+
+	for (size_t i = 0; i < form.checkBoxes.size(); ++i)
+	{
+		tempString = form.checkBoxes[i].getName();
+		for (size_t j = 0; j < names.size(); ++j)
+		{
+			if (tempString == names[j])
+			{
+				return tempString;
+			}
+		}
+		names.push_back(tempString);
+	}
+
+	for (size_t i = 0; i < form.radioButtones.size(); ++i)
+	{
+		tempString = form.radioButtones[i].getName();
+		for (size_t j = 0; j < names.size(); ++j)
+		{
+			if (tempString == names[j])
+			{
+				return tempString;
+			}
+		}
+		names.push_back(tempString);
+	}
+
+	for (size_t i = 0; i < form.editLines.size(); ++i)
+	{
+		tempString = form.editLines[i].getName();
+		for (size_t j = 0; j < names.size(); ++j)
+		{
+			if (tempString == names[j])
+			{
+				return tempString;
+			}
+		}
+		names.push_back(tempString);
+	}
+	return "";
 }
 
 
