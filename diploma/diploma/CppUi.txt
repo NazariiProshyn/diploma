@@ -1,5 +1,5 @@
 |Button           [     
-/   name: Button
+/   name: 1Button
 /   sizeVert: 100 
 /   sizeGorz: 100
 /   positionVert: 100

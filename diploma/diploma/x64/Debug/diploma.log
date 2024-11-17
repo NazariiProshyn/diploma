@@ -1,6 +1,1 @@
-﻿  Parcer.cpp
-  diploma.cpp
-  Generating Code...
-D:\University\diploma\diploma\diploma\diploma\Parcer.cpp(97): warning C4715: 'getBool': not all control paths return a value
-D:\University\diploma\diploma\diploma\diploma\Parcer.cpp(1606): warning C4715: 'Parcer::checkParam': not all control paths return a value
-  diploma.vcxproj -> D:\University\diploma\diploma\diploma\x64\Debug\diploma.exe
+﻿  diploma.vcxproj -> C:\Users\nazar\OneDrive\Робочий стіл\Диплом Магістр\code\Parser\diploma\diploma\x64\Debug\diploma.exe

@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CheckBox.cpp" />
+    <ClCompile Include="Compiler.cpp" />
     <ClCompile Include="diploma.cpp" />
     <ClCompile Include="EditLine.cpp" />
     <ClCompile Include="Error.cpp" />
@@ -143,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="CheckBox.h" />
+    <ClInclude Include="Compiler.h" />
     <ClInclude Include="EditLine.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="Form.h" />

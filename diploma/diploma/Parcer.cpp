@@ -8,13 +8,17 @@ namespace NMMessages
 {
 	const std::string notOpenFile = "Can not open file: ";//
 	const std::string unknCommand = "Unknown command";//
-	const std::string unknWidget = "Unknown widget or not create scope";//
-	const std::string createWidgetError = "This widget can't creating in this scope";//
+	const std::string unknWidget1 = "Unknown widget ' ";//
+	const std::string unknWidget2 = " ' or not create scope";
+	const std::string createWidgetError1 = "This widget '";
+	const std::string createWidgetError2 = " ' creating in this scope: ";//
 	const std::string outOfScope = "Out of any scopes";//
 	const std::string noParam = "Must be ':' in this line";//
 	const std::string noValue = "Must be value in this line";//
-	const std::string badParam = "This widget havent this param";//
-	const std::string badValue = "This line has invalid value or symbol after scope sign";
+	const std::string badParam1 = "This widget ' ";
+	const std::string badParam2 = " ' havent this param: ";//
+	const std::string badValue1 = "This line has invalid value ' ";
+	const std::string badValue2 = "' or symbol after scope sign";
 	const std::string notUniqueValue = "Two or more widgets with name: ";
 }
 
@@ -152,13 +156,13 @@ bool Parcer::parcing()
 				{
 					if (!createWidget())
 					{
-						error.setError(NMMessages::createWidgetError, line);
+						error.setError(NMMessages::createWidgetError1 + activeString + NMMessages::createWidgetError2 + scope.top(), line);
 						return false;
 					}
 				}
 				else
 				{
-					error.setError(NMMessages::unknWidget, line);
+					error.setError(NMMessages::unknWidget1 + activeString + NMMessages::unknWidget2, line);
 					return false;
 				}
 			}//////////////////////////////////////////////
@@ -172,13 +176,13 @@ bool Parcer::parcing()
 						{
 							if (!paramWidget())
 							{
-								error.setError(NMMessages::badValue, line);
+								error.setError(NMMessages::badValue1 + valueString + NMMessages::badValue2, line);
 								return false;
 							}
 						}
 						else
 						{
-							error.setError(NMMessages::badParam, line);
+							error.setError(NMMessages::badParam1 + scope.top() + NMMessages::badParam2 + activeString, line);
 							return false;
 						}
 					}
