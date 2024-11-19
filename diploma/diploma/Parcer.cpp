@@ -210,7 +210,7 @@ bool Parcer::parcing()
 		}
 	}
 	std::string notUniqueName = checkUniqueNames();
-	if (notUniqueName != "")
+	if (notUniqueName != "" && notUniqueName != " ")
 	{
 		error.setError(NMMessages::notUniqueValue + notUniqueName, 0);
 		return false;
@@ -831,6 +831,7 @@ bool Parcer::paramWidget()
 
 		if (scope.top() == NMWidgets::editLine)
 		{
+			std::cout << "smth";
 			if (activeString == "text")
 			{
 				form.editLines[form.editLines.size() - 1].text.setText(valueString);
@@ -932,6 +933,10 @@ bool Parcer::paramWidget()
 				{
 					return false;
 				}
+			}
+			if (activeString == "name")
+			{
+				form.editLines[form.editLines.size() - 1].setName(valueString);
 			}
 
 		}
@@ -1686,11 +1691,15 @@ std::string Parcer::checkUniqueNames()
 		{
 			if (tempString == names[j])
 			{
+				for (size_t i = 0; i < 5; ++i) {
+					std::cout << '\n' << tempString << "\n";
+				}
 				return tempString;
 			}
 		}
 		names.push_back(tempString);
 	}
+
 	return "";
 }
 
